@@ -1,0 +1,8 @@
+@import '~bulma/sass/utilities/initial-variables';
+
+$blue: rgb(37, 100, 163);
+
+$primary: $blue;
+
+@import '~bulma';
+@import "~buefy/src/scss/buefy";

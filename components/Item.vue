@@ -5,7 +5,7 @@
         <b-checkbox v-model="checked" size="is-large" />
       </div>
     </div>
-    <div class="media-content is-size-4">
+    <div class="media-content is-size-5">
       {{ name }}
     </div>
   </div>
