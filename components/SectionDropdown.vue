@@ -1,9 +1,15 @@
 <template>
   <b-dropdown aria-role="list">
-    <button slot="trigger" slot-scope="{ active }" class="button is-primary">
-      <span class="constrain-width">Section</span>
-      <b-icon :icon="active ? 'menu-up' : 'menu-down'"></b-icon>
-    </button>
+    <div
+      slot="trigger"
+      slot-scope="{ active }"
+      class="dropdown-button-container"
+    >
+      <button class="button is-primary">
+        <span>Section</span>
+        <b-icon :icon="active ? 'menu-up' : 'menu-down'"></b-icon>
+      </button>
+    </div>
 
     <b-dropdown-item aria-role="listitem">Action</b-dropdown-item>
     <b-dropdown-item aria-role="listitem">Another action</b-dropdown-item>

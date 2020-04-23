@@ -7,8 +7,14 @@ $primary: $blue;
 @import '~bulma';
 @import "~buefy/src/scss/buefy";
 
-.constrain-width {
-  width: 10vw;
-  text-overflow: ellipsis;
-  overflow: hidden;
+.dropdown-button-container {
+  display: flex;
+  height: 100%;
+  align-items: center;
+
+  span {
+    width: 10vw;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 }

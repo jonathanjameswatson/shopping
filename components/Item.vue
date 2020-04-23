@@ -1,15 +1,11 @@
 <template>
   <div class="media">
-    <div class="media-left">
-      <div class="field">
-        <b-checkbox size="is-large" />
-      </div>
-    </div>
     <div class="media-content">
-      <p class="is-size-5">{{ item }}</p>
-    </div>
-    <div class="media-right">
-      <section-dropdown />
+      <b-field grouped>
+        <b-checkbox size="is-large" />
+        <b-input v-model="item" expanded rounded size="is-medium" />
+        <section-dropdown />
+      </b-field>
     </div>
   </div>
 </template>
