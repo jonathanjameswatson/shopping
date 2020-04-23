@@ -2,7 +2,7 @@
   <div>
     <b-navbar wrapper-class="container">
       <template slot="brand">
-        <b-navbar-item tag="router-link" :to="{ path: '/' }">
+        <b-navbar-item tag="nuxt-link" to="/">
           <h1 class="title is-size-5 has-text-primary">shopping</h1>
         </b-navbar-item>
       </template>

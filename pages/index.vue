@@ -1,7 +1,7 @@
 <template>
   <section class="section">
     <div class="container">
-      <item name="Free" section="last" checked="true" />
+      <item v-for="i in 5" :key="i" :item="i" />
     </div>
   </section>
 </template>

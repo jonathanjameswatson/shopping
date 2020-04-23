@@ -2,33 +2,28 @@
   <div class="media">
     <div class="media-left">
       <div class="field">
-        <b-checkbox v-model="checked" size="is-large" />
+        <b-checkbox size="is-large" />
       </div>
     </div>
-    <div class="media-content is-size-5">
-      {{ name }}
+    <div class="media-content">
+      <p class="is-size-5">{{ item }}</p>
+    </div>
+    <div class="media-right">
+      <section-dropdown />
     </div>
   </div>
 </template>
 
 <script>
+import SectionDropdown from '~/components/SectionDropdown'
+
 export default {
+  components: {
+    SectionDropdown
+  },
   props: {
-    editMode: {
-      type: Boolean,
-      required: false,
-      default: false
-    },
-    name: {
-      type: String,
-      required: true
-    },
-    section: {
-      type: String,
-      required: true
-    },
-    checked: {
-      type: Boolean,
+    item: {
+      type: Number,
       required: true
     }
   }
