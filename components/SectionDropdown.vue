@@ -1,7 +1,7 @@
 <template>
   <b-dropdown aria-role="list">
     <button slot="trigger" slot-scope="{ active }" class="button is-primary">
-      <span>Section</span>
+      <span class="constrain-width">Section</span>
       <b-icon :icon="active ? 'menu-up' : 'menu-down'"></b-icon>
     </button>
 

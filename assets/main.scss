@@ -6,3 +6,9 @@ $primary: $blue;
 
 @import '~bulma';
 @import "~buefy/src/scss/buefy";
+
+.constrain-width {
+  width: 10vw;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
