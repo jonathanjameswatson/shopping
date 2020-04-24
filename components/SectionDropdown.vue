@@ -16,3 +16,14 @@
     <b-dropdown-item aria-role="listitem">Something else</b-dropdown-item>
   </b-dropdown>
 </template>
+
+<script>
+export default {
+  props: {
+    item: {
+      type: Number,
+      required: true
+    }
+  }
+}
+</script>
