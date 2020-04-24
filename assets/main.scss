@@ -7,16 +7,14 @@ $primary: $blue;
 @import '~bulma';
 @import "~buefy/src/scss/buefy";
 
-.dropdown-button-container {
+.checkbox-container {
   display: flex;
-  height: 100%;
   align-items: center;
+  margin: auto;
+}
 
-  span {
-    width: 10vw;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
+.media {
+  align-items: center;
 }
 
 .sortable-ghost {

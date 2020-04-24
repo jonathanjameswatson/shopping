@@ -1,26 +1,39 @@
 <template>
   <div class="media">
+    <div class="media-left">
+      <p class="checkbox-container">
+        <b-checkbox v-model="checked" size="is-large" />
+      </p>
+    </div>
     <div class="media-content">
-      <b-field grouped>
-        <b-checkbox size="is-large" />
-        <b-input v-model="item" expanded rounded size="is-medium" />
-        <section-dropdown />
-      </b-field>
+      <span class="is-size-4" :style="lineThrough">{{ name }}</span>
+    </div>
+    <div class="media-right">
+      <b-button type="is-primary">Edit</b-button>
     </div>
   </div>
 </template>
 
 <script>
-import SectionDropdown from '~/components/SectionDropdown.vue'
-
 export default {
-  components: {
-    SectionDropdown
-  },
   props: {
-    item: {
+    id: {
       type: Number,
       required: true
+    }
+  },
+  data() {
+    return {
+      name: 'Apple',
+      checked: false
+    }
+  },
+  computed: {
+    lineThrough() {
+      if (this.checked) {
+        return { 'text-decoration': 'line-through' }
+      }
+      return {}
     }
   }
 }
