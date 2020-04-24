@@ -4,14 +4,14 @@
       <b-field grouped>
         <b-checkbox size="is-large" />
         <b-input v-model="item" expanded rounded size="is-medium" />
-        <section-dropdown :item="item" />
+        <section-dropdown />
       </b-field>
     </div>
   </div>
 </template>
 
 <script>
-import SectionDropdown from '~/components/SectionDropdown'
+import SectionDropdown from '~/components/SectionDropdown.vue'
 
 export default {
   components: {
