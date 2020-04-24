@@ -12,7 +12,7 @@ export const mutations = {
   update(state, sections) {
     state.sections = sections
   },
-  updateSection(state, [section, i]) {
+  updateSection(state, { section, i }) {
     state.sections[i] = section
   }
 }

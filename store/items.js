@@ -1,21 +1,26 @@
 import { nanoid } from 'nanoid'
+import Vue from 'vue'
 
 export const state = () => ({
   items: {}
 })
 
 export const mutations = {
-  add(state, name) {
+  add(state, { name, section }) {
     const id = nanoid(10)
-    state.items[id] = {
+    Vue.set(state.items, id, {
       name,
-      section: null
-    }
+      section,
+      checked: false
+    })
+  },
+  setChecked(state, { id, checked }) {
+    Vue.set(state.items[id], 'checked', checked)
   },
   remove(state, id) {
-    delete state.items[id]
+    Vue.delete(state.items, id)
   },
   update(state, id, item) {
-    state.items[id] = item
+    Vue.set(state.items, id, item)
   }
 }

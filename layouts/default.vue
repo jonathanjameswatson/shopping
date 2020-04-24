@@ -13,6 +13,9 @@
         <b-navbar-item tag="nuxt-link" to="/sections">
           Sections
         </b-navbar-item>
+        <b-navbar-item @click="addItem">
+          ADD ITEM
+        </b-navbar-item>
       </template>
     </b-navbar>
 
@@ -21,5 +24,11 @@
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    addItem() {
+      this.$store.commit('items/add', { name: 'Apple', section: null })
+    }
+  }
+}
 </script>

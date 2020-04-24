@@ -18,17 +18,22 @@
 export default {
   props: {
     id: {
-      type: Number,
+      type: String,
       required: true
     }
   },
-  data() {
-    return {
-      name: 'Apple',
-      checked: false
-    }
-  },
   computed: {
+    name() {
+      return this.$store.state.items.items[this.id].name
+    },
+    checked: {
+      get() {
+        return this.$store.state.items.items[this.id].checked
+      },
+      set(value) {
+        this.$store.commit('items/setChecked', { id: this.id, checked: value })
+      }
+    },
     lineThrough() {
       if (this.checked) {
         return { 'text-decoration': 'line-through' }
