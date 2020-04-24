@@ -1,6 +1,9 @@
 <template>
   <section class="section">
     <div class="container">
+      <p v-if="sections.length === 0" class="title">
+        Click the button below to add a section.
+      </p>
       <draggable v-model="sections" handle=".handle" :animation="100">
         <div v-for="(section, i) in sections" :key="i" class="media">
           <div class="media-content is-clipped">
