@@ -1,19 +1,20 @@
 <template>
   <section class="section">
     <div class="container">
-      <draggable
-        v-bind="dragOptions"
-        :list="l"
-        handle=".handle"
-        :animation="100"
-      >
+      <draggable v-model="sections" handle=".handle" :animation="100">
         <div v-for="(section, i) in sections" :key="i" class="media">
           <div class="media-content is-clipped">
             <b-field grouped>
               <div class="handle">
                 <b-icon icon="dots-vertical" size="is-medium" />
               </div>
-              <b-input expanded rounded size="is-medium" />
+              <b-input
+                :value="section"
+                expanded
+                rounded
+                size="is-medium"
+                @input="updateSection($event, i)"
+              />
               <b-button
                 icon-right="close"
                 type="is-text"
@@ -23,15 +24,12 @@
             </b-field>
           </div>
         </div>
-
-        <div slot="footer" class="media">
-          <div class="media-content is-clipped">
-            <div class="buttons">
-              <b-button type="is-primary" @click="add">Add section</b-button>
-            </div>
-          </div>
-        </div>
       </draggable>
+
+      <br />
+      <div class="buttons">
+        <b-button type="is-primary" @click="add">Add section</b-button>
+      </div>
     </div>
   </section>
 </template>
@@ -54,6 +52,9 @@ export default {
     },
     remove(section) {
       this.$store.commit('sections/remove', section)
+    },
+    updateSection(event, i) {
+      this.$store.commit('sections/updateSection', [event, i])
     }
   }
 }

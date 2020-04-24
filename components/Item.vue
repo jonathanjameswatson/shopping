@@ -4,7 +4,7 @@
       <b-field grouped>
         <b-checkbox size="is-large" />
         <b-input v-model="item" expanded rounded size="is-medium" />
-        <section-dropdown />
+        <section-dropdown :item="item" />
       </b-field>
     </div>
   </div>
