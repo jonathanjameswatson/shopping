@@ -7,22 +7,26 @@
         handle=".handle"
         :animation="100"
       >
-        <div v-for="i in l" :key="i" :item="i" class="media">
+        <div v-for="(section, i) in sections" :key="i" class="media">
           <div class="media-left">
             <b-icon class="handle" icon="dots-vertical" />
           </div>
           <div class="media-content">
-            {{ i }}
+            {{ section }}
           </div>
           <div class="media-right">
-            <b-button icon-right="close" type="is-text"></b-button>
+            <b-button
+              icon-right="close"
+              type="is-text"
+              @click="remove(section)"
+            />
           </div>
         </div>
 
         <div slot="footer" class="media">
           <div class="media-content is-clipped">
             <div class="buttons">
-              <b-button type="is-primary">Add section</b-button>
+              <b-button type="is-primary" @click="add">Add section</b-button>
             </div>
           </div>
         </div>
@@ -33,11 +37,22 @@
 
 <script>
 export default {
-  name: 'HomePage',
-
-  data() {
-    return {
-      l: [1, 2, 3, 4, 5]
+  computed: {
+    sections: {
+      get() {
+        return this.$store.state.sections.sections
+      },
+      set(value) {
+        this.$store.commit('sections/update', value)
+      }
+    }
+  },
+  methods: {
+    add() {
+      this.$store.commit('sections/add', '')
+    },
+    remove(section) {
+      this.$store.commit('sections/remove', section)
     }
   }
 }
