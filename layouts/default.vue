@@ -10,11 +10,11 @@
         <b-navbar-item tag="nuxt-link" to="/">
           Shopping list
         </b-navbar-item>
-        <b-navbar-item tag="nuxt-link" to="/sections">
-          Sections
+        <b-navbar-item @click="addItems">
+          Add items
         </b-navbar-item>
-        <b-navbar-item @click="addItem">
-          ADD ITEM
+        <b-navbar-item tag="nuxt-link" to="/sections">
+          Edit sections
         </b-navbar-item>
       </template>
     </b-navbar>
@@ -24,10 +24,16 @@
 </template>
 
 <script>
+import AddItems from '~/components/AddItems.vue'
+
 export default {
   methods: {
-    addItem() {
-      this.$store.commit('items/add', { name: 'Apple', section: null })
+    addItems() {
+      this.$buefy.modal.open({
+        parent: this,
+        component: AddItems,
+        hasModalCard: true
+      })
     }
   }
 }

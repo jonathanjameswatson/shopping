@@ -26,3 +26,9 @@ $primary: $blue;
   align-items: center;
   margin-right: 0.75rem;
 }
+
+.add-items-outline {
+  border-radius: $radius-large;
+  box-shadow: 0 .5em 1em -.125em rgba(10, 10, 10, .1),
+  0 0 0 1px rgba(10, 10, 10, .02);
+}

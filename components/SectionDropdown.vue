@@ -1,11 +1,16 @@
 <template>
-  <b-dropdown v-model="chosenSection" aria-role="list" @input="sectionChange">
+  <b-dropdown
+    v-model="chosenSection"
+    aria-role="list"
+    append-to-body
+    @input="sectionChange"
+  >
     <div
       slot="trigger"
       slot-scope="{ active }"
       class="dropdown-button-container"
     >
-      <button class="button is-primary">
+      <button class="button">
         <span>{{ chosenSection ? chosenSection : 'Pick a section' }}</span>
         <b-icon :icon="active ? 'menu-up' : 'menu-down'"></b-icon>
       </button>
@@ -21,7 +26,9 @@
     </b-dropdown-item>
 
     <b-dropdown-item v-if="sections.length === 0" custom>
-      <nuxt-link to="/sections">Add some sections</nuxt-link>
+      <nuxt-link to="/sections" @click.native="close">
+        Add some sections
+      </nuxt-link>
     </b-dropdown-item>
   </b-dropdown>
 </template>
@@ -48,6 +55,9 @@ export default {
   methods: {
     sectionChange(section) {
       this.$emit('input', section)
+    },
+    close() {
+      this.$emit('close')
     }
   }
 }
