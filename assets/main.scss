@@ -22,3 +22,9 @@ $primary: $blue;
 .sortable-ghost {
   opacity: 1;
 }
+
+.handle {
+  display: flex;
+  align-items: center;
+  margin-right: 0.75rem;
+}

@@ -8,18 +8,19 @@
         :animation="100"
       >
         <div v-for="(section, i) in sections" :key="i" class="media">
-          <div class="media-left">
-            <b-icon class="handle" icon="dots-vertical" />
-          </div>
-          <div class="media-content">
-            {{ section }}
-          </div>
-          <div class="media-right">
-            <b-button
-              icon-right="close"
-              type="is-text"
-              @click="remove(section)"
-            />
+          <div class="media-content is-clipped">
+            <b-field grouped>
+              <div class="handle">
+                <b-icon icon="dots-vertical" size="is-medium" />
+              </div>
+              <b-input expanded rounded size="is-medium" />
+              <b-button
+                icon-right="close"
+                type="is-text"
+                size="is-medium"
+                @click="remove(section)"
+              />
+            </b-field>
           </div>
         </div>
 
