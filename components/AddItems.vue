@@ -1,16 +1,25 @@
 <template>
-  <div class="modal-card add-items-outline" style="width: auto">
-    <div class="modal-card-body">
-      <b-field label="Item name">
-        <b-input v-model="name" />
-      </b-field>
-      <b-field label="Section">
-        <section-dropdown v-model="section" @close="$parent.close()" />
-      </b-field>
-      <hr />
-      <b-button type="is-primary" @click="addItem">Add item</b-button>
+  <form action="javascript:void(0);">
+    <div class="modal-card add-items">
+      <div class="modal-card-body">
+        <b-field label="Item name">
+          <b-input v-model="name" />
+        </b-field>
+        <b-field label="Section">
+          <section-dropdown v-model="section" @close="$parent.close()" />
+        </b-field>
+        <hr />
+        <b-button
+          type="is-primary"
+          native-type="submit"
+          :disabled="!submittable"
+          @click.stop.prevent="addItem"
+        >
+          Add item
+        </b-button>
+      </div>
     </div>
-  </div>
+  </form>
 </template>
 
 <script>
@@ -26,8 +35,14 @@ export default {
       section: null
     }
   },
+  computed: {
+    submittable() {
+      return this.name !== '' && this.section !== null
+    }
+  },
   methods: {
     addItem() {
+      if (!this.submittable) return false
       this.$store.commit('items/add', {
         name: this.name,
         section: this.section

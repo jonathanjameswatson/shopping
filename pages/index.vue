@@ -7,7 +7,13 @@
         </p>
         <add-items />
       </template>
+
       <item v-for="id in itemIds" :id="id" :key="id" />
+
+      <template v-if="itemIds.length !== 0">
+        <br />
+        <b-button type="is-primary" @click="addItems">Add more items</b-button>
+      </template>
     </div>
   </section>
 </template>
@@ -24,6 +30,15 @@ export default {
   computed: {
     itemIds() {
       return Object.keys(this.$store.state.items.items)
+    }
+  },
+  methods: {
+    addItems() {
+      this.$buefy.modal.open({
+        parent: this,
+        component: AddItems,
+        hasModalCard: true
+      })
     }
   }
 }

@@ -57,7 +57,7 @@ export default {
       this.$store.commit('sections/remove', section)
     },
     updateSection(event, i) {
-      this.$store.commit('sections/updateSection', { event, i })
+      this.$store.commit('sections/updateSection', { section: event, i })
     }
   }
 }
