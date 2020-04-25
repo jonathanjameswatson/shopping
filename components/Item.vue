@@ -6,7 +6,9 @@
       </p>
     </div>
     <div class="media-content">
-      <span class="is-size-4" :style="lineThrough">{{ name }}</span>
+      <span class="is-size-4" :style="lineThrough">
+        {{ name }}
+      </span>
     </div>
     <div class="media-right">
       <b-button type="is-primary">Edit</b-button>

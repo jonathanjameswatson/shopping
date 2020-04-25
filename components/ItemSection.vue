@@ -1,0 +1,34 @@
+<template>
+  <div class="media">
+    <div class="media-content">
+      <div class="media">
+        <div class="media-content">
+          <span class="is-size-4 section-title">
+            {{ section }}
+          </span>
+        </div>
+      </div>
+      <item v-for="id in ids" :id="id" :key="id" />
+    </div>
+  </div>
+</template>
+
+<script>
+import Item from '~/components/Item'
+
+export default {
+  components: {
+    Item
+  },
+  props: {
+    section: {
+      type: String,
+      required: true
+    },
+    ids: {
+      type: Array,
+      required: true
+    }
+  }
+}
+</script>

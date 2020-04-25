@@ -20,6 +20,9 @@ export const mutations = {
   remove(state, id) {
     Vue.delete(state.items, id)
   },
+  removeAll(state) {
+    state.items = {}
+  },
   update(state, id, item) {
     Vue.set(state.items, id, item)
   }

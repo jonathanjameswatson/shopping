@@ -1,35 +1,71 @@
 <template>
   <section class="section">
     <div class="container">
-      <template v-if="itemIds.length === 0">
+      <template v-if="empty">
         <p class="title">
           Add your first item
         </p>
         <add-items />
       </template>
 
-      <item v-for="id in itemIds" :id="id" :key="id" />
+      <item-section
+        v-for="section in sectionedItemIds"
+        :key="section.section"
+        :section="section.section"
+        :ids="section.itemIds"
+      />
 
-      <template v-if="itemIds.length !== 0">
+      <template v-if="!empty">
         <br />
-        <b-button type="is-primary" @click="addItems">Add more items</b-button>
+        <div class="buttons">
+          <b-button type="is-primary" @click="addItems">
+            Add more items
+          </b-button>
+          <b-button type="is-primary" @click="removeAll">
+            Remove all items
+          </b-button>
+        </div>
       </template>
     </div>
   </section>
 </template>
 
 <script>
-import Item from '~/components/Item'
+import ItemSection from '~/components/ItemSection.vue'
 import AddItems from '~/components/AddItems.vue'
 
 export default {
   components: {
-    Item,
+    ItemSection,
     AddItems
   },
   computed: {
-    itemIds() {
-      return Object.keys(this.$store.state.items.items)
+    items() {
+      return this.$store.state.items.items
+    },
+    empty() {
+      return Object.keys(this.items).length === 0
+    },
+    sections() {
+      return this.$store.state.sections.sections
+    },
+    sectionedItemIds() {
+      const sectionedItemIds = this.sections.map((section) => ({
+        section,
+        itemIds: []
+      }))
+      sectionedItemIds.push({ section: 'Uncategorized', itemIds: [] })
+      Object.entries(this.items).forEach(([id, item]) => {
+        const section = sectionedItemIds.find(
+          (section) => section.section === item.section
+        )
+        if (section) {
+          section.itemIds.push(id)
+        } else {
+          sectionedItemIds[sectionedItemIds.length - 1].itemIds.push(id)
+        }
+      })
+      return sectionedItemIds.filter(({ itemIds }) => itemIds.length !== 0)
     }
   },
   methods: {
@@ -38,6 +74,12 @@ export default {
         parent: this,
         component: AddItems,
         hasModalCard: true
+      })
+    },
+    removeAll() {
+      this.$buefy.dialog.confirm({
+        message: 'Are you sure you would like to remove all items?',
+        onConfirm: () => this.$store.commit('items/removeAll')
       })
     }
   }
