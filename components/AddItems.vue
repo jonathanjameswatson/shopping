@@ -6,7 +6,7 @@
           <b-input v-model="name" />
         </b-field>
         <b-field label="Section">
-          <section-dropdown v-model="section" @close="$parent.close()" />
+          <section-dropdown v-model="sectionId" @close="$parent.close()" />
         </b-field>
         <hr />
         <b-button
@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       name: '',
-      section: null
+      sectionId: null
     }
   },
   computed: {
@@ -45,7 +45,7 @@ export default {
       if (!this.submittable) return false
       this.$store.commit('items/add', {
         name: this.name,
-        section: this.section
+        sectionId: this.sectionId
       })
     }
   }

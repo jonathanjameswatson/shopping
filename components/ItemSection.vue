@@ -8,7 +8,7 @@
           </span>
         </div>
       </div>
-      <item v-for="id in ids" :id="id" :key="id" />
+      <item v-for="id in itemIds" :id="id" :key="id" />
     </div>
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
       type: String,
       required: true
     },
-    ids: {
+    itemIds: {
       type: Array,
       required: true
     }

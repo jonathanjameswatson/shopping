@@ -1,18 +1,24 @@
+import { nanoid } from 'nanoid'
+
 export const state = () => ({
   sections: []
 })
 
 export const mutations = {
   add(state, section) {
-    state.sections.push(section)
+    const id = nanoid(10)
+    state.sections.push({ id, section })
   },
-  remove(state, section) {
-    state.sections.splice(state.sections.indexOf(section), 1)
+  remove(state, id) {
+    state.sections.splice(
+      state.sections.findIndex((section) => section.id === id),
+      1
+    )
   },
-  update(state, sections) {
+  updateSection(state, { id, section }) {
+    state.sections.find((section) => section.id === id).section = section
+  },
+  updateAll(state, sections) {
     state.sections = sections
-  },
-  updateSection(state, { section, i }) {
-    state.sections[i] = section
   }
 }

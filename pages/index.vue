@@ -12,7 +12,7 @@
         v-for="section in sectionedItemIds"
         :key="section.section"
         :section="section.section"
-        :ids="section.itemIds"
+        :item-ids="section.itemIds"
       />
 
       <template v-if="!empty">
@@ -50,14 +50,21 @@ export default {
       return this.$store.state.sections.sections
     },
     sectionedItemIds() {
-      const sectionedItemIds = this.sections.map((section) => ({
-        section,
+      const sectionedItemIds = this.sections.map(
+        ({ id: sectionId, section }) => ({
+          sectionId,
+          section,
+          itemIds: []
+        })
+      )
+      sectionedItemIds.push({
+        sectionId: null,
+        section: 'No section chosen',
         itemIds: []
-      }))
-      sectionedItemIds.push({ section: 'Uncategorized', itemIds: [] })
+      })
       Object.entries(this.items).forEach(([id, item]) => {
         const section = sectionedItemIds.find(
-          (section) => section.section === item.section
+          (section) => section.sectionId === item.sectionId
         )
         if (section) {
           section.itemIds.push(id)

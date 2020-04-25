@@ -1,25 +1,25 @@
 <template>
   <div>
     <button class="button" @click="open = !open">
-      <span>{{ chosenSection ? chosenSection : 'Pick a section' }}</span>
+      <span>{{ chosenSectionId ? chosenSection : 'Pick a section' }}</span>
       <b-icon :icon="open ? 'menu-up' : 'menu-down'"></b-icon>
     </button>
     <template v-if="open">
       <br />
       <b-dropdown
-        v-model="chosenSection"
+        v-model="chosenSectionId"
         aria-role="list"
         inline
         class="section-dropdown"
         @input="sectionChange"
       >
         <b-dropdown-item
-          v-for="(section, i) in sections"
-          :key="i"
-          :value="section"
+          v-for="section in sections"
+          :key="section.id"
+          :value="section.id"
           aria-role="listitem"
         >
-          {{ section }}
+          {{ section.section }}
         </b-dropdown-item>
 
         <b-dropdown-item v-if="sections.length === 0" custom>
@@ -44,12 +44,19 @@ export default {
   data() {
     return {
       open: false,
-      chosenSection: this.value
+      chosenSectionId: this.value
     }
   },
   computed: {
     sections() {
       return this.$store.state.sections.sections
+    },
+    chosenSection() {
+      const chosenSectionObject = this.sections.find(
+        (section) => section.id === this.chosenSectionId
+      )
+      if (chosenSectionObject) return chosenSectionObject.section
+      return null
     }
   },
   methods: {

@@ -6,11 +6,11 @@ export const state = () => ({
 })
 
 export const mutations = {
-  add(state, { name, section }) {
+  add(state, { name, sectionId }) {
     const id = nanoid(10)
     Vue.set(state.items, id, {
       name,
-      section,
+      sectionId,
       checked: false
     })
   },

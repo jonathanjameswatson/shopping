@@ -5,24 +5,24 @@
         Click the button below to add a section.
       </p>
       <draggable v-model="sections" handle=".handle" :animation="100">
-        <div v-for="(section, i) in sections" :key="i" class="media">
+        <div v-for="section in sections" :key="section.id" class="media">
           <div class="media-content is-clipped">
             <b-field grouped>
               <div class="handle">
                 <b-icon icon="dots-vertical" size="is-medium" />
               </div>
               <b-input
-                :value="section"
+                :value="section.section"
                 expanded
                 rounded
                 size="is-medium"
-                @input="updateSection($event, i)"
+                @input="updateSection($event, section.id)"
               />
               <b-button
                 icon-right="close"
                 type="is-text"
                 size="is-medium"
-                @click="remove(section)"
+                @click="remove(section.id)"
               />
             </b-field>
           </div>
@@ -45,7 +45,7 @@ export default {
         return this.$store.state.sections.sections
       },
       set(value) {
-        this.$store.commit('sections/update', value)
+        this.$store.commit('sections/updateAll', value)
       }
     }
   },
@@ -53,11 +53,11 @@ export default {
     add() {
       this.$store.commit('sections/add', '')
     },
-    remove(section) {
-      this.$store.commit('sections/remove', section)
+    remove(id) {
+      this.$store.commit('sections/remove', id)
     },
-    updateSection(event, i) {
-      this.$store.commit('sections/updateSection', { section: event, i })
+    updateSection(event, id) {
+      this.$store.commit('sections/updateSection', { id, section: event })
     }
   }
 }
