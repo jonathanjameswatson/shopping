@@ -11,12 +11,16 @@
       </span>
     </div>
     <div class="media-right">
-      <b-button type="is-primary">Edit</b-button>
+      <b-button type="is-primary" @click="editItem">
+        Edit
+      </b-button>
     </div>
   </div>
 </template>
 
 <script>
+import EditItem from '~/components/EditItem.vue'
+
 export default {
   props: {
     id: {
@@ -41,6 +45,18 @@ export default {
         return { 'text-decoration': 'line-through' }
       }
       return {}
+    }
+  },
+  methods: {
+    editItem() {
+      this.$buefy.modal.open({
+        parent: this,
+        component: EditItem,
+        hasModalCard: true,
+        props: {
+          id: this.id
+        }
+      })
     }
   }
 }

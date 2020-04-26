@@ -23,7 +23,11 @@ export const mutations = {
   removeAll(state) {
     state.items = {}
   },
-  update(state, id, item) {
-    Vue.set(state.items, id, item)
+  update(state, { id, item: { name, sectionId } }) {
+    Vue.set(state.items, id, {
+      name,
+      sectionId,
+      checked: state.items[id].checked
+    })
   }
 }

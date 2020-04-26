@@ -1,7 +1,7 @@
 <template>
   <div>
     <button class="button" @click="open = !open">
-      <span>{{ chosenSectionId ? chosenSection : 'Pick a section' }}</span>
+      <span>{{ chosenSection ? chosenSection : 'Pick a section' }}</span>
       <b-icon :icon="open ? 'menu-up' : 'menu-down'"></b-icon>
     </button>
     <template v-if="open">
@@ -34,7 +34,7 @@
 
 <script>
 export default {
-  prop: {
+  props: {
     value: {
       type: String,
       required: false,

@@ -3,7 +3,7 @@
     <div class="media-content">
       <div class="media">
         <div class="media-content">
-          <span class="is-size-4 section-title">
+          <span class="title is-4">
             {{ section }}
           </span>
         </div>
