@@ -1,63 +1,80 @@
 <template>
   <section class="section">
     <div class="container">
-      <p v-if="sections.length === 0" class="title">
-        Click the button below to add a section.
+      <p v-if="empty" class="title">
+        Add your first section
       </p>
-      <draggable v-model="sections" handle=".handle" :animation="100">
-        <div v-for="section in sections" :key="section.id" class="media">
-          <div class="media-content is-clipped">
-            <b-field grouped>
-              <div class="handle">
-                <b-icon icon="dots-vertical" size="is-medium" />
-              </div>
-              <b-input
-                :value="section.section"
-                expanded
-                rounded
-                size="is-medium"
-                @input="updateSection($event, section.id)"
-              />
-              <b-button
-                icon-right="close"
-                type="is-text"
-                size="is-medium"
-                @click="remove(section.id)"
-              />
-            </b-field>
-          </div>
-        </div>
+
+      <draggable v-model="sectionIds" handle=".handle" :animation="100">
+        <section-media
+          v-for="sectionId in sectionIds"
+          :id="sectionId"
+          :key="sectionId"
+        />
       </draggable>
 
-      <br />
-      <div class="buttons">
-        <b-button type="is-primary" @click="add">Add section</b-button>
+      <hr v-if="!empty" />
+
+      <div class="box">
+        <article class="media">
+          <div class="media-content">
+            <form action="javascript:void(0);">
+              <b-field grouped>
+                <b-input
+                  v-model="newSectionTitle"
+                  expanded
+                  rounded
+                  placeholder="New section name"
+                />
+                <b-button
+                  type="is-primary"
+                  native-type="submit"
+                  :disabled="addButtonDisabled"
+                  @click.stop.prevent="add"
+                >
+                  Add section
+                </b-button>
+              </b-field>
+            </form>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import SectionMedia from '~/components/SectionMedia.vue'
+
 export default {
+  components: {
+    SectionMedia
+  },
+  data() {
+    return {
+      newSectionTitle: ''
+    }
+  },
   computed: {
-    sections: {
+    sectionIds: {
       get() {
-        return this.$store.state.sections.sections
+        return this.$store.state.sections.sections.map((section) => section.id)
       },
       set(value) {
-        this.$store.commit('sections/updateAll', value)
+        this.$store.commit('sections/reorder', value)
       }
+    },
+    addButtonDisabled() {
+      return this.newSectionTitle === ''
+    },
+    empty() {
+      return this.sectionIds.length === 0
     }
   },
   methods: {
     add() {
-      this.$store.commit('sections/add', '')
-    },
-    remove(id) {
-      this.$store.commit('sections/remove', id)
-    },
-    updateSection(event, id) {
-      this.$store.commit('sections/updateSection', { id, section: event })
+      this.$store.commit('sections/add', this.newSectionTitle)
+      this.newSectionTitle = ''
     }
   }
 }

@@ -1,13 +1,35 @@
 import { nanoid } from 'nanoid'
+import Vue from 'vue'
 
 export const state = () => ({
   sections: []
 })
 
+const numberEnd = /[0-9]+$/
+
+const getUniqueSection = (state, newSection, id) => {
+  const existingSection = state.sections.find(
+    (section) => section.section === newSection && section.id !== id
+  )
+  if (existingSection === undefined) return newSection
+  if (!numberEnd.test(newSection)) {
+    return getUniqueSection(state, `${newSection} 2`, id)
+  } else {
+    return getUniqueSection(
+      state,
+      newSection.replace(
+        numberEnd,
+        (match) => String(parseInt(match, 10) + 1),
+        id
+      )
+    )
+  }
+}
+
 export const mutations = {
   add(state, section) {
     const id = nanoid(10)
-    state.sections.push({ id, section })
+    state.sections.push({ id, section: getUniqueSection(state, section, id) })
   },
   remove(state, id) {
     state.sections.splice(
@@ -16,9 +38,15 @@ export const mutations = {
     )
   },
   updateSection(state, { id, section }) {
-    state.sections.find((section) => section.id === id).section = section
+    Vue.set(
+      state.sections.find((section) => section.id === id),
+      'section',
+      getUniqueSection(state, section, id)
+    )
   },
-  updateAll(state, sections) {
-    state.sections = sections
+  reorder(state, ids) {
+    state.sections = ids.map((id) =>
+      state.sections.find((section) => section.id === id)
+    )
   }
 }

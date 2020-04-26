@@ -37,7 +37,7 @@ export default {
   },
   computed: {
     submittable() {
-      return this.name !== '' && this.section !== null
+      return this.name !== '' && this.sectionId !== null
     }
   },
   methods: {
@@ -47,6 +47,7 @@ export default {
         name: this.name,
         sectionId: this.sectionId
       })
+      this.name = ''
     }
   }
 }
