@@ -16,6 +16,9 @@
         <b-navbar-item tag="nuxt-link" to="/sections">
           Edit sections
         </b-navbar-item>
+        <b-navbar-item tag="nuxt-link" to="/options">
+          Options
+        </b-navbar-item>
       </template>
     </b-navbar>
 

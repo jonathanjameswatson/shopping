@@ -21,9 +21,6 @@
           <b-button type="is-primary" @click="addItems">
             Add more items
           </b-button>
-          <b-button type="is-primary" @click="removeAll">
-            Remove all items
-          </b-button>
         </div>
       </template>
     </div>
@@ -81,12 +78,6 @@ export default {
         parent: this,
         component: AddItems,
         hasModalCard: true
-      })
-    },
-    removeAll() {
-      this.$buefy.dialog.confirm({
-        message: 'Are you sure you would like to remove all items?',
-        onConfirm: () => this.$store.commit('items/removeAll')
       })
     }
   }
