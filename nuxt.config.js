@@ -29,7 +29,10 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~plugins/draggable.js'],
+  plugins: [
+    '~plugins/draggable.js',
+    { src: '~plugins/localStorage.js', mode: 'client ' }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
