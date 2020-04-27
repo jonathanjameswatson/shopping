@@ -42,7 +42,7 @@ api.post(
       throw new Error('Invalid password')
     }
 
-    const accessToken = jsonwebtoken.sign({}, secret)
+    const accessToken = jsonwebtoken.sign({}, secret, { expiresIn: '1000y' })
 
     res.json({
       token: {
