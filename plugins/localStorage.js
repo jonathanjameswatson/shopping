@@ -8,6 +8,8 @@ export default ({ store, isHMR }) => {
   if (isHMR) return
 
   window.onNuxtReady((nuxt) => {
-    createPersistedState()(store) // vuex plugins can be connected to store, even after creation
+    createPersistedState({
+      paths: ['items', 'sections']
+    })(store) // vuex plugins can be connected to store, even after creation
   })
 }

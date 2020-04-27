@@ -53,8 +53,6 @@ export default {
             password: this.password
           }
         })
-
-        this.$router.push('/items')
       } catch (e) {
         this.error = e.response.data.message || e.response.data.error.message
         this.loading = false
