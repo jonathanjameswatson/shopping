@@ -91,7 +91,7 @@ export default {
 
   pwa: {
     meta: {
-      ogHost: 'https://shopping.jonathanjameswatson.com',
+      ogHost: 'https://jjw-shopping.herokuapp.com/',
       ogImage: '/icon.png',
       twitterCard: 'summary_large_image',
       nativeUI: true
