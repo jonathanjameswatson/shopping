@@ -12,7 +12,7 @@ Make sure you have [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com
 
 ```bash
 $ git clone https://github.com/jonathanjameswatson/shopping.git # or clone your own fork
-$ cd kwzz
+$ cd shopping
 $ yarn install
 ```
 
