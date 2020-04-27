@@ -29,5 +29,8 @@ export const mutations = {
       sectionId,
       checked: state.items[id].checked
     })
+  },
+  load(state, items) {
+    state.items = items
   }
 }

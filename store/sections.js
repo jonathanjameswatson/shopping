@@ -48,5 +48,8 @@ export const mutations = {
     state.sections = ids.map((id) =>
       state.sections.find((section) => section.id === id)
     )
+  },
+  load(state, sections) {
+    state.sections = sections
   }
 }

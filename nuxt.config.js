@@ -31,7 +31,7 @@ export default {
    */
   plugins: [
     '~plugins/draggable.js',
-    { src: '~plugins/localStorage.js', mode: 'client ' }
+    { src: '~plugins/localStorage.js', mode: 'client' }
   ],
   /*
    ** Nuxt.js dev-modules
