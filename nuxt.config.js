@@ -3,25 +3,9 @@ import api from './api'
 export default {
   mode: 'spa',
   /*
-   ** Headers of the page
-   */
-  head: {
-    title: process.env.npm_package_name || 'shopping',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      {
-        hid: 'description',
-        name: 'description',
-        content: process.env.npm_package_description || ''
-      }
-    ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
-  },
-  /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: '#2564A3' },
   /*
    ** Global CSS
    */
@@ -103,5 +87,17 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+
+  pwa: {
+    meta: {
+      ogHost: 'https://shopping.jonathanjameswatson.com',
+      ogImage: '/icon.png',
+      twitterCard: 'summary_large_image',
+      nativeUI: true
+    },
+    manifest: {
+      display: 'minimal-ui'
+    }
   }
 }
