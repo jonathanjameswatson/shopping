@@ -7,10 +7,12 @@
       <div class="box">
         <div class="media">
           <div class="media-content">
-            <b-button type="is-primary" @click="signOut">
-              Sign out
-            </b-button>
-            <br /><br />
+            <template v-if="$auth.loggedIn">
+              <b-button type="is-primary" @click="signOut">
+                Sign out
+              </b-button>
+              <br /><br />
+            </template>
             <b-button type="is-danger" @click="removeAll">
               Remove all items
             </b-button>

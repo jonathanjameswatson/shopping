@@ -1,62 +1,84 @@
 <template>
   <section class="section">
     <div class="container">
-      <h1 class="title">
-        Sign in
-      </h1>
-      <div class="box">
-        <div class="media">
-          <div class="media-content">
-            <form action="javascript:void(0);">
-              <b-field label="Password">
-                <b-input
-                  v-model="password"
-                  type="password"
-                  password-reveal
-                  expanded
-                  rounded
-                />
-              </b-field>
-              <hr />
-              <b-button
-                type="is-primary"
-                native-type="submit"
-                @click.stop.prevent="signIn"
-              >
-                Sign in
-              </b-button>
-            </form>
-          </div>
+      <template v-if="empty">
+        <p class="title">
+          Add your first item
+        </p>
+        <add-items />
+      </template>
+
+      <item-section
+        v-for="section in sectionedItemIds"
+        :key="section.section"
+        :section="section.section"
+        :item-ids="section.itemIds"
+      />
+
+      <template v-if="!empty">
+        <br />
+        <div class="buttons">
+          <b-button type="is-primary" @click="addItems">
+            Add more items
+          </b-button>
         </div>
-      </div>
-      <b-message :active="error !== ''" type="is-danger" has-icon>
-        {{ error }}
-      </b-message>
+      </template>
     </div>
   </section>
 </template>
 
 <script>
+import ItemSection from '~/components/ItemSection.vue'
+import AddItems from '~/components/AddItems.vue'
+
 export default {
-  auth: 'guest',
-  data() {
-    return {
-      password: '',
-      error: ''
+  components: {
+    ItemSection,
+    AddItems
+  },
+  computed: {
+    items() {
+      return this.$store.state.items.items
+    },
+    empty() {
+      return Object.keys(this.items).length === 0
+    },
+    sections() {
+      return this.$store.state.sections.sections
+    },
+    sectionedItemIds() {
+      const sectionedItemIds = this.sections.map(
+        ({ id: sectionId, section }) => ({
+          sectionId,
+          section,
+          itemIds: []
+        })
+      )
+      sectionedItemIds.push({
+        sectionId: null,
+        section: 'No section chosen',
+        itemIds: []
+      })
+      Object.entries(this.items).forEach(([id, item]) => {
+        const section = sectionedItemIds.find(
+          (section) => section.sectionId === item.sectionId
+        )
+        if (section) {
+          section.itemIds.push(id)
+        } else {
+          sectionedItemIds[sectionedItemIds.length - 1].itemIds.push(id)
+        }
+      })
+      return sectionedItemIds.filter(({ itemIds }) => itemIds.length !== 0)
     }
   },
   methods: {
-    async signIn() {
-      try {
-        await this.$auth.loginWith('local', {
-          data: {
-            password: this.password
-          }
-        })
-      } catch (e) {
-        this.error = e.response.data.message || e.response.data.error.message
-        this.loading = false
-      }
+    addItems() {
+      this.$buefy.modal.open({
+        parent: this,
+        component: AddItems,
+        hasModalCard: true
+      })
     }
   }
 }

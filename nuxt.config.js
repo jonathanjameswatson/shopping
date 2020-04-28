@@ -46,7 +46,7 @@ export default {
       login: '/',
       logout: '/',
       callback: '/',
-      home: '/items'
+      home: '/'
     },
     strategies: {
       local: {
@@ -63,11 +63,6 @@ export default {
     },
     localStorage: false
   },
-
-  router: {
-    middleware: ['auth']
-  },
-
   /*
    ** Build configuration
    */

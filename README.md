@@ -4,7 +4,7 @@
 
 ## Features
 
-This web app lets you create and order sections of a shop. Items can then be added to a shopping list and be automatically ordered based on which section they are in. Access to the app is limited by a password and one set of items and sections can be saved and loaded from a server.
+This web app lets you create and order sections of a shop. Items can then be added to a shopping list and be automatically ordered based on which section they are in. This website can also set up to allow users with a password to save and load one shopping list on the server.
 
 ## Setup
 
@@ -16,7 +16,7 @@ $ cd shopping
 $ yarn install
 ```
 
-See the [database section](#database) for setting up the database.
+[See this section for setting up saving and loading](setting-up-saving-and-loading).
 
 ## Usage
 
@@ -32,15 +32,11 @@ $ yarn run deploy
 $ yarn run generate
 ```
 
-## Environment variables
+## Setting up saving and loading
 
-Set SHOPPING_JWT_SECRET to a secret key before deploying the web app in production.
-Set SHOPPING_MAIN_PASSWORD to the password needed to access the web app.
-Set SHOPPING_DB_CONNECTION_STRING to the connection string for the MongoDB connection used.
+To set up saving and loading, host this website on Netlify. Netlify needs the SHOPPING_JWT_SECRET environment variable set to a secret key before deploying the web app in production and the SHOPPING_MAIN_PASSWORD environment variable to the password needed to access saving and loading.
 
-## Database
-
-The database used for this web app uses MongoDB. Set up a database with the name "shopping" and a capped collection also called "shopping". Set the SHOPPING_DB_CONNECTION_STRING to the database cluster's connection string.
+The database used for this web app uses MongoDB. Set up a database with the name "shopping" and a capped collection also named "shopping". Set the SHOPPING_DB_CONNECTION_STRING environment variable in Netlify to the database cluster's connection string.
 
 ## License
 
