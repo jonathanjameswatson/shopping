@@ -75,9 +75,8 @@ export default {
 
   pwa: {
     meta: {
-      ogHost: 'https://jjw-shopping.herokuapp.com/',
+      ogHost: 'https://jjw-shopping.netlify.app/',
       ogImage: '/icon.png',
-      twitterCard: 'summary_large_image',
       mobileAppIOS: true
     },
     manifest: {
