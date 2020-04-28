@@ -42,10 +42,7 @@ export default {
         })
         this.$parent.close()
       } catch (e) {
-        this.error =
-          e.response.data.message ||
-          e.response.data.error.message ||
-          e.response.data
+        this.error = e.response.data
         this.loading = false
       }
     }
