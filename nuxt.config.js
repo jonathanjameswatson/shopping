@@ -22,8 +22,6 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module'
   ],
-
-  proxy: ['http://localhost:3000/api'],
   /*
    ** Nuxt.js modules
    */
@@ -35,6 +33,13 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/auth'
   ],
+  /*
+   ** Axios module configuration
+   ** See https://axios.nuxtjs.org/options
+   */
+  axios: {
+    baseURL: '/'
+  },
 
   auth: {
     redirect: {
