@@ -75,7 +75,7 @@ export default {
 
   pwa: {
     meta: {
-      ogHost: 'https://jjw-shopping.netlify.app/',
+      ogHost: 'https://shopping.jonathanjameswatson.com/',
       ogImage: '/icon.png',
       mobileAppIOS: true
     },
