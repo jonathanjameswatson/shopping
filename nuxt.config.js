@@ -94,10 +94,10 @@ export default {
       ogHost: 'https://jjw-shopping.herokuapp.com/',
       ogImage: '/icon.png',
       twitterCard: 'summary_large_image',
-      nativeUI: true
+      mobileAppIOS: true
     },
     manifest: {
-      display: 'minimal-ui'
+      display: 'fullscreen'
     }
   }
 }
