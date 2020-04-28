@@ -19,6 +19,10 @@
         >
           Sign in
         </b-button>
+        <template v-if="error !== ''">
+          <br /><br />
+          <b-message type="is-danger">{{ error }}</b-message>
+        </template>
       </div>
     </div>
   </form>
