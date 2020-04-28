@@ -2,6 +2,6 @@
    command = "yarn dev"
 
 [build]
-  command = "yarn generate"
+  command = "yarn build"
   publish = "dist"
   functions = "functions"
