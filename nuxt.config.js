@@ -1,5 +1,3 @@
-import api from './api'
-
 export default {
   mode: 'spa',
   /*
@@ -42,15 +40,8 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    proxy: true
+    baseURL: true
   },
-
-  serverMiddleware: [
-    {
-      path: '/api',
-      handler: api
-    }
-  ],
 
   auth: {
     redirect: {
@@ -63,7 +54,7 @@ export default {
       local: {
         endpoints: {
           login: {
-            url: '/api/signin',
+            url: '/.netlify/functions/signin',
             method: 'post',
             propertyName: 'token.accessToken'
           },
@@ -99,5 +90,9 @@ export default {
     manifest: {
       display: 'fullscreen'
     }
+  },
+
+  generate: {
+    fallback: true
   }
 }
