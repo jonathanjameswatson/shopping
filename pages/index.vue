@@ -28,6 +28,8 @@
 </template>
 
 <script>
+import AddItems from '~/components/AddItems.vue'
+
 export default {
   computed: {
     items() {
