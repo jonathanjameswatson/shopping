@@ -44,12 +44,7 @@
 </template>
 
 <script>
-import SectionMedia from '~/components/SectionMedia.vue'
-
 export default {
-  components: {
-    SectionMedia
-  },
   data() {
     return {
       newSectionTitle: ''

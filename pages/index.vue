@@ -28,14 +28,7 @@
 </template>
 
 <script>
-import ItemSection from '~/components/ItemSection.vue'
-import AddItems from '~/components/AddItems.vue'
-
 export default {
-  components: {
-    ItemSection,
-    AddItems
-  },
   computed: {
     items() {
       return this.$store.state.items.items
