@@ -13,28 +13,28 @@
   },
   "dependencies": {
     "@nuxtjs/auth": "^4.9.1",
-    "@nuxtjs/axios": "^5.11.0",
+    "@nuxtjs/axios": "^5.12.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "bcrypt": "^5.0.0",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.5.9",
     "nanoid": "^3.1.10",
     "node-sass": "^4.14.1",
-    "nuxt": "^2.13.2",
+    "nuxt": "^2.13.3",
     "nuxt-buefy": "^0.3.31",
-    "sass-loader": "^8.0.2",
-    "vuedraggable": "^2.23.2",
+    "sass-loader": "^9.0.2",
+    "vuedraggable": "^2.24.0",
     "vuex-persistedstate": "^3.0.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "babel-eslint": "^10.0.1",
-    "eslint": "^7.3.1",
+    "eslint": "^7.5.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-nuxt": ">=1.0.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "netlify-cli": "^2.56.0",
+    "netlify-cli": "^2.58.0",
     "prettier": "^2.0.5"
   }
 }
