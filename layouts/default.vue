@@ -7,32 +7,20 @@
         </b-navbar-item>
       </template>
       <template slot="start">
-        <b-navbar-item tag="nuxt-link" to="/">
-          Shopping list
-        </b-navbar-item>
-        <b-navbar-item @click="addItems">
-          Add items
-        </b-navbar-item>
+        <b-navbar-item tag="nuxt-link" to="/"> Shopping list </b-navbar-item>
+        <b-navbar-item @click="addItems"> Add items </b-navbar-item>
         <b-navbar-item tag="nuxt-link" to="/sections">
           Edit sections
         </b-navbar-item>
-        <b-navbar-item tag="nuxt-link" to="/options">
-          Options
-        </b-navbar-item>
+        <b-navbar-item tag="nuxt-link" to="/options"> Options </b-navbar-item>
       </template>
       <template slot="end">
         <b-navbar-item v-if="$auth.loggedIn" tag="div" class="buttons">
-          <b-button type="is-primary" @click="save">
-            Save list
-          </b-button>
-          <b-button type="is-primary" @click="load">
-            Load list
-          </b-button>
+          <b-button type="is-primary" @click="save"> Save list </b-button>
+          <b-button type="is-primary" @click="load"> Load list </b-button>
         </b-navbar-item>
         <b-navbar-item v-else tag="div" class="buttons">
-          <b-button type="is-primary" @click="signin">
-            Sign in
-          </b-button>
+          <b-button type="is-primary" @click="signin"> Sign in </b-button>
         </b-navbar-item>
       </template>
     </b-navbar>

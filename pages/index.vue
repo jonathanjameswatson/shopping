@@ -2,9 +2,7 @@
   <section class="section">
     <div class="container">
       <template v-if="empty">
-        <p class="title">
-          Add your first item
-        </p>
+        <p class="title">Add your first item</p>
         <add-items />
       </template>
 
