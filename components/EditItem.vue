@@ -8,9 +8,7 @@
         <section-dropdown v-model="sectionId" @close="$parent.close()" />
       </b-field>
       <hr />
-      <b-button type="is-danger" @click="removeItem">
-        Delete
-      </b-button>
+      <b-button type="is-danger" @click="removeItem"> Delete </b-button>
     </div>
   </div>
 </template>

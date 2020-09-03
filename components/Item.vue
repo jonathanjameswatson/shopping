@@ -11,9 +11,7 @@
       </span>
     </div>
     <div class="media-right">
-      <b-button type="is-primary" @click="editItem">
-        Edit
-      </b-button>
+      <b-button type="is-primary" @click="editItem"> Edit </b-button>
     </div>
   </div>
 </template>

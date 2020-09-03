@@ -1,9 +1,7 @@
 <template>
   <section class="section">
     <div class="container">
-      <p v-if="empty" class="title">
-        Add your first section
-      </p>
+      <p v-if="empty" class="title">Add your first section</p>
 
       <draggable v-model="sectionIds" handle=".handle" :animation="100">
         <section-media
