@@ -13,28 +13,28 @@
   },
   "dependencies": {
     "@nuxtjs/auth": "^4.9.1",
-    "@nuxtjs/axios": "^5.12.2",
-    "@nuxtjs/pwa": "^3.0.2",
+    "@nuxtjs/axios": "^5.12.5",
+    "@nuxtjs/pwa": "^3.3.3",
     "bcrypt": "^5.0.0",
     "jsonwebtoken": "^8.5.1",
-    "mongodb": "^3.6.2",
-    "nanoid": "^3.1.12",
-    "node-sass": "^4.14.1",
-    "nuxt": "^2.14.6",
-    "nuxt-buefy": "^0.4.3",
-    "sass-loader": "^10.0.2",
-    "vuedraggable": "^2.24.1",
-    "vuex-persistedstate": "^3.1.0"
+    "mongodb": "^3.6.3",
+    "nanoid": "^3.1.20",
+    "node-sass": "^5.0.0",
+    "nuxt": "^2.14.12",
+    "nuxt-buefy": "^0.4.4",
+    "sass-loader": "^10.1.0",
+    "vuedraggable": "^2.24.3",
+    "vuex-persistedstate": "^4.0.0-beta.1"
   },
   "devDependencies": {
-    "@nuxtjs/eslint-config": "^3.1.0",
-    "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/eslint-config": "^5.0.0",
+    "@nuxtjs/eslint-module": "^3.0.2",
     "babel-eslint": "^10.0.1",
-    "eslint": "^7.9.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-nuxt": ">=1.0.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "netlify-cli": "^2.64.1",
-    "prettier": "^2.1.2"
+    "eslint": "^7.17.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-nuxt": ">=2.0.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "netlify-cli": "^2.70.0",
+    "prettier": "^2.2.1"
   }
 }
