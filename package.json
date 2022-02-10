@@ -19,7 +19,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.3",
     "nanoid": "^3.1.20",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
     "nuxt": "^2.14.12",
     "nuxt-buefy": "^0.4.4",
     "sass-loader": "^10.1.0",
