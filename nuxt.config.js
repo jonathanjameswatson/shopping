@@ -1,5 +1,5 @@
 export default {
-  mode: 'spa',
+  ssr: false,
   /*
    ** Customize the progress-bar color
    */
