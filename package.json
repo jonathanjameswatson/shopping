@@ -2,8 +2,10 @@
   "name": "shopping",
   "version": "1.0.0",
   "description": "A simple shopping list web app",
-  "author": "Jonathan J Watson",
-  "private": true,
+  "homepage": "https://shopping.jonathanjameswatson.com",
+  "license": "MIT",
+  "author": "Jonathan Watson",
+  "repository": "github:jonathanjameswatson/shopping",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -35,5 +37,6 @@
     "prettier": "^2.6.2",
     "sass": "^1.50.1",
     "sass-loader": "^10.1.1"
-  }
+  },
+  "private": true
 }
